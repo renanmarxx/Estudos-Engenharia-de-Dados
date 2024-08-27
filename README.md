@@ -4,4 +4,6 @@ Este repositório tem a finalidade de explorar conceitos e conteúdos de python 
 
 Dentro das pastas contém os arquivos que servem de apoio e instrução para a relação dos códigos que serão desenvolvidos nos estudos.
 
+Para utilizar estes arquivos será necessário configurar o ambiente instalando algumas bibliotecas e configurando ambiente virtual
+
 .
