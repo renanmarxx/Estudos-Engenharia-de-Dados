@@ -3,19 +3,46 @@
 # EM DESENVOLVIMENTO...
 
 print("Exercicio 01")
+lista_numeros: list = list(range(1, 11))
 
+for i in lista_numeros:
+    print(f"Número: {i} - Elevado ao Quadrado: {i ** 2}")
 
 print("\n")
 
 
 print("Exercicio 02")
+lista: list = ["Python", "Java", "C++", "JavaScript"]
+print(lista)
 
+lista.remove("C++")
+lista.append("Ruby")
+print(lista)
 
 print("\n")
 
 
 print("Exercicio 03")
+from typing import Dict, Any
 
+livro_1: Dict[str, Any] = {
+    "Titulo" : "Game of Thrones"
+    ,"Autor" : "George R. R. Martin"
+    ,"Ano" : "2005"
+}
+
+livro_2: Dict[str, Any] = {
+    "Titulo" : "Game of Thrones - Casa do Dragao"
+    ,"Autor" : "George R. R. Martin"
+    ,"Ano" : "2022"
+}
+
+lista_livros = []
+
+lista_livros.append(livro_1)
+lista_livros.append(livro_2)
+
+print(lista_livros)
 
 print("\n")
 
