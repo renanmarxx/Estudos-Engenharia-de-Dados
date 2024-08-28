@@ -12,6 +12,7 @@ numpy = "^2.1.0"
 seaborn = "^0.13.2"
 plotly = "^5.23.0"
 statistics = "^1.0.3.5"
+yfinance = "^0.2.43"
 
 
 [build-system]
