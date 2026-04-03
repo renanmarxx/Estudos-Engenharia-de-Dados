@@ -1,4 +1,4 @@
-#!/Users/renanmarx/Documents/Projetos/Estudos-Engenharia-de-Dados/Bootcamp-Python/bin/python3.12
+#!/Users/renanmarx/Documents/Projetos/Estudos-Engenharia-de-Dados/Bootcamp-Python/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys
