@@ -38,4 +38,6 @@ except ValueError:
 bonus_recebido = 1000 + salario * bonus  # Exemplo simples de KPI
 
 # Imprime as informações para o usuário
-print(f"{nome}, seu salário é R${salario:.2f} e seu bônus final é R${bonus_recebido:.2f}.")
+print(
+    f"{nome}, seu salário é R${salario:.2f} e seu bônus final é R${bonus_recebido:.2f}."
+)
