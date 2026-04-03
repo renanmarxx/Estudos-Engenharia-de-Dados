@@ -1,79 +1,283 @@
 # Lista de exercicios com os tipos de variaveis e operadores do python (int, float, string, boolean)
 
-# Inteiros (int)
 
-# 1. Escreva um programa que soma dois números inteiros inseridos pelo usuário.
-print("Exercicio 01 - Escreva um programa que soma dois números inteiros inseridos pelo usuário.")
-num1_ex1 = int(input("Informe o primeiro número: "))
-num2_ex1 = int(input("Informe o segundo número: "))
-soma_ex1 = num1_ex1 + num2_ex1
+def escolhe_exercicio() -> int:
+    print("A lista a seguir apresenta os exercicios a serem executados apos escolha do usuario: \n")
+    print("A lista esta separada por tipo de variavel: \n")
 
-print(f"O primeiro número informado foi: {num1_ex1}, o segundo número informado foi: {num2_ex1}")
-print(f"A soma entre os dois números será: {num1_ex1} + {num2_ex1} = {soma_ex1}")
-print("\n")
+    texto = """"
+    ### Inteiros (int)
 
-# 2. Crie um programa que receba um número do usuário e calcule o resto da divisão desse número por 5.
-print("Exercicio 02 - Crie um programa que receba um número do usuário e calcule o resto da divisão desse número por 5.")
-CONSTANTE_RESTO_DIVISAO_EX2 = 5
-num_ex2 = int(input("Informe um número: "))
-calculo_resto_ex2 = num_ex2 % CONSTANTE_RESTO_DIVISAO_EX2
+    1. Escreva um programa que soma dois números inteiros inseridos pelo usuário.
+    2. Crie um programa que receba um número do usuário e calcule o resto da divisão desse número por 5.
+    3. Desenvolva um programa que multiplique dois números fornecidos pelo usuário e mostre o resultado.
+    4. Faça um programa que peça dois números inteiros e imprima a divisão inteira do primeiro pelo segundo.
+    5. Escreva um programa que calcule o quadrado de um número fornecido pelo usuário.
 
-print(f"O número informado foi: {num_ex2}")
-print(f"O resto da divisão de {num_ex2} quando dividido por {CONSTANTE_RESTO_DIVISAO_EX2} será de: {calculo_resto_ex2}")
-print("\n")
+    ### Números de Ponto Flutuante (float)
 
-# 3. Desenvolva um programa que multiplique dois números fornececidos pelo usuário e mostre o resultado.
-print("Exercicio 03 - Desenvolva um programa que multiplique dois números fornececidos pelo usuário e mostre o resultado.")
-CONSTANTE_RESTO_DIVISAO_EX2 = 5
-num1_ex3 = int(input("Informe o primeiro número: "))
-num2_ex3 = int(input("Informe o segundo número: "))
-calculo_multiplicacao_ex3 = num1_ex3 * num2_ex3
+    6. Escreva um programa que receba dois números flutuantes e realize sua adição.
+    7. Crie um programa que calcule a média de dois números flutuantes fornecidos pelo usuário.
+    8. Desenvolva um programa que calcule a potência de um número (base e expoente fornecidos pelo usuário).
+    9. Faça um programa que converta a temperatura de Celsius para Fahrenheit.
+    10. Escreva um programa que calcule a área de um círculo, recebendo o raio como entrada.
 
-print(f"O primeiro número informado foi: {num1_ex3}, o segundo número informado foi: {num2_ex3}")
-print(f"A multiplicação entre os dois números será: {num1_ex3} * {num2_ex3} = {calculo_multiplicacao_ex3}")
-print("\n")
+    ### Strings (str)
 
-# 4. Faça um programa que peça dois números inteiros e imprima a divisão inteira do primeiro pelo segundo.
-print("Exercicio 04 - Faça um programa que peça dois números inteiros e imprima a divisão inteira do primeiro pelo segundo.")
-num1_ex4 = int(input("Informe o primeiro número: "))
-num2_ex4 = int(input("Informe o segundo número: "))
-calculo_resto_ex4 = num1_ex4 % num2_ex4
+    11. Escreva um programa que receba uma string do usuário e a converta para maiúsculas.
+    12. Crie um programa que receba o nome completo do usuário e imprima o nome com todas as letras minúsculas.
+    13. Desenvolva um programa que peça ao usuário para inserir uma frase e, em seguida, imprima esta frase sem espaços em branco no início e no final.
+    14. Faça um programa que peça ao usuário para digitar uma data no formato "dd/mm/aaaa" e, em seguida, imprima o dia, o mês e o ano separadamente.
+    15. Escreva um programa que concatene duas strings fornecidas pelo usuário.
 
-print(f"O primeiro número informado foi: {num1_ex4}, o segundo número informado foi: {num2_ex4}")
-print(f"O resto da divisão entre {num1_ex4} e {num2_ex4} será {calculo_resto_ex4}")
-print("\n")
+    ### Booleanos (bool)
 
-# 5. Escreva um programa que calcule o quadrado de um número fornecido pelo usuário.
-print("Exercicio 05 - Escreva um programa que calcule o quadrado de um número fornecido pelo usuário.")
-num1_ex5 = int(input("Informe um número: "))
-calculo_quadrado_ex5 = pow(num1_ex5, 2)
+    16. Escreva um programa que avalie duas expressões booleanas inseridas pelo usuário e retorne o resultado da operação AND entre elas.
+    17. Crie um programa que receba dois valores booleanos do usuário e retorne o resultado da operação OR.
+    18. Desenvolva um programa que peça ao usuário para inserir um valor booleano e, em seguida, inverta esse valor.
+    19. Faça um programa que compare se dois números fornecidos pelo usuário são iguais.
+    20. Escreva um programa que verifique se dois números fornecidos pelo usuário são diferentes.
+    """
+    print(texto)
 
-print(f"O número informado foi: {num1_ex5}")
-print(f"O quadrado do número {num1_ex5} é: {calculo_quadrado_ex5}")
-print("\n")
+    escolha = input("Selecione o exercicio a ser executado: ")
+
+    try:
+        escolha = int(escolha)
+    except ValueError:
+        raise ValueError("O valor informado deve ser um numero inteiro.")
+
+    if escolha not in range(1, 21):
+        raise ValueError("Exercicio invalido, por favor selecione um numero entre 1 e 20.")
+
+    return escolha
 
 
-# Números de ponto flutuante (float)
+def exercicio_01() -> None:
+    print("Exercicio 01 - Escreva um programa que soma dois números inteiros inseridos pelo usuário.")
+    num_1 = int(input("Informe o primeiro número: "))
+    num_2 = int(input("Informe o segundo número: "))
+    soma = num_1 + num_2
 
-# 6. Escreva um programa que receba dois números flutuantes e realize sua adição.
-print("Exercicio 06 - Escreva um programa que receba dois números flutuantes e realize sua adição.")
-num1_ex6 = float(input("Informe o primeiro número: "))
-num2_ex6 = float(input("Informe o segundo número: "))
-soma_ex6 = num1_ex6 + num2_ex6
+    print(f"O primeiro número informado foi: {num_1}, o segundo número informado foi: {num_2}")
+    print(f"A soma entre os dois números será: {num_1} + {num_2} = {soma}")
 
-print(f"O primeiro número informado foi: {num1_ex6}, o segundo número informado foi: {num2_ex6}")
-print(f"A soma entre os dois números será: {num1_ex6} + {num2_ex6} = {soma_ex6}")
-print("\n")
+def exercicio_02() -> None:
+    print("Exercicio 02 - Crie um programa que receba um número do usuário e calcule o resto da divisão desse número por 5.")
+    CONSTANTE_RESTO_DIVISAO = 5
+    num = int(input("Informe um número: "))
+    calculo_resto = num % CONSTANTE_RESTO_DIVISAO
 
-# 7. Crie um programa que calcule a média de dois números flutuantes fornecidos pelo usuário.
-print("Exercicio 07 - Crie um programa que calcule a média de dois números flutuantes fornecidos pelo usuário.")
-num1_ex7 = float(input("Informe o primeiro número: "))
-num2_ex7 = float(input("Informe o segundo número: "))
-import statistics
-calculo_media_ex7 = statistics.mean([num1_ex7, num2_ex7])
+    print(f"O número informado foi: {num}")
+    print(f"O resto da divisão de {num} quando dividido por {CONSTANTE_RESTO_DIVISAO} será de: {calculo_resto}")
 
-print(f"O primeiro número informado foi: {num1_ex7}, o segundo número informado foi: {num2_ex7}")
-print(f"A média entre o {num1_ex7} e {num2_ex7} é de: {calculo_media_ex7}")
-print("\n")
 
-# EM CONTINUACAO...
+def exercicio_03() -> None:
+    print("Exercicio 03 - Desenvolva um programa que multiplique dois números fornecidos pelo usuário e mostre o resultado.")
+    num1 = int(input("Informe o primeiro número: "))
+    num2 = int(input("Informe o segundo número: "))
+    resultado = num1 * num2
+    print(f"O primeiro número informado foi: {num1}, o segundo número informado foi: {num2}")
+    print(f"A multiplicação entre os dois números será: {num1} * {num2} = {resultado}")
+
+
+def exercicio_04() -> None:
+    print("Exercicio 04 - Faça um programa que peça dois números inteiros e imprima a divisao inteira do primeiro pelo segundo.")
+    num1 = int(input("Informe o primeiro número: "))
+    num2 = int(input("Informe o segundo número: "))
+    if num2 == 0:
+        print("Divisao por zero nao permitida")
+        return
+    resultado = num1 // num2
+    print(f"O primeiro número informado foi: {num1}, o segundo número informado foi: {num2}")
+    print(f"A divisão inteira entre {num1} e {num2} será {resultado}")
+
+
+def exercicio_05() -> None:
+    print("Exercicio 05 - Escreva um programa que calcule o quadrado de um número fornecido pelo usuário.")
+    num = int(input("Informe um número: "))
+    resultado = num ** 2
+    print(f"O número informado foi: {num}")
+    print(f"O quadrado do número {num} é: {resultado}")
+
+
+def exercicio_06() -> None:
+    print("Exercicio 06 - Escreva um programa que receba dois números flutuantes e realize sua adição.")
+    num1 = float(input("Informe o primeiro número: "))
+    num2 = float(input("Informe o segundo número: "))
+    resultado = num1 + num2
+    print(f"O primeiro número informado foi: {num1}, o segundo número informado foi: {num2}")
+    print(f"A soma entre os dois números será: {num1} + {num2} = {resultado}")
+
+
+def exercicio_07() -> None:
+    import statistics
+    print("Exercicio 07 - Crie um programa que calcule a média de dois números flutuantes fornecidos pelo usuário.")
+    num1 = float(input("Informe o primeiro número: "))
+    num2 = float(input("Informe o segundo número: "))
+    resultado = statistics.mean([num1, num2])
+    print(f"O primeiro número informado foi: {num1}, o segundo número informado foi: {num2}")
+    print(f"A média entre {num1} e {num2} é de: {resultado}")
+
+
+def exercicio_08() -> None:
+    print("Exercicio 08 - Desenvolva um programa que calcule a potência de um número (base e expoente fornecidos pelo usuário).")
+    base = float(input("Informe a base: "))
+    expoente = float(input("Informe o expoente: "))
+    resultado = base ** expoente
+    print(f"A potência de {base} elevado a {expoente} é: {resultado}")
+
+def exercicio_09() -> None:
+    print("Exercicio 09 - Faça um programa que converta a temperatura de Celsius para Fahrenheit.")
+    celsius = float(input("Informe a temperatura em Celsius: "))
+    fahrenheit = (celsius * 9/5) + 32
+    print(f"A temperatura de {celsius}°C é equivalente a {fahrenheit}°F")
+
+def exercicio_10() -> None:
+    print(f"Exercicio 10 - Escreva um programa que calcule a área de um círculo, recebendo o raio como entrada.")
+    raio = float(input("Forneca o raio do circulo: "))
+    import math
+    area = round(math.pi * pow(raio, 2), 4)
+    print(f"A area do circulo baseado no raio {raio} é de {area} cm2")
+
+def exercicio_11() -> None:
+    print(f"Exercicio 11 - Escreva um programa que receba uma string do usuário e a converta para maiúsculas.")
+    string = str(input("Entre com uma string qualquer: "))
+    
+    string_maiuscula = string.upper()
+    print(f"A string informada: {string} foi convertida em maiuscula: {string_maiuscula}")
+    
+
+def exercicio_12() -> None:
+    print(f"Exercicio 12 - Crie um programa que receba o nome completo do usuário e imprima o nome com todas as letras minúsculas.")
+
+    string = str(input("Entre com uma string qualquer: "))
+    
+    string_minuscula = string.upper()
+    print(f"A string informada: {string} foi convertida em minuscula: {string_minuscula}")
+
+def exercicio_13() -> None:
+    print(f"Exercicio 13 - Desenvolva um programa que peça ao usuário para inserir uma frase e, em seguida, imprima esta frase sem espaços em branco no início e no final.")
+
+    frase = str(input("Forneca uma frase qualquer: "))
+    len_frase = len(frase)
+    frase_formatada = frase.strip()
+    len_frase_formatada = len(frase_formatada)
+    calculo_percentual = round(((len_frase_formatada / len_frase) - 1), 2)
+
+    print(f"A frase recebida foi: '{frase}' com {len(frase)} caracteres\n")
+    print(f"A frase formatada sem espacos no inicio e no fim ficou: '{frase_formatada}' com {len(frase_formatada)} caracteres\n")
+    print(f"Foi removido um total de {len_frase - len_frase_formatada} caracteres de espaco em branco no inicio e no fim da frase\n")
+    print(f"Representando um total de {calculo_percentual}% de reducao")
+
+def exercicio_14() -> None:
+    print(f"Exercicio 14 - Faça um programa que peça ao usuário para digitar uma data no formato 'dd/mm/aaaa' e, em seguida, imprima o dia, o mês e o ano separadamente.")
+    data = str(input("Forneca uma data no formato 'dd/mm/aaaa': "))
+    data_formatada = data.split("/")
+
+    print(f"A data recebida foi: {data}\n")
+    print(f"O dia a partir da data recebida é: {data_formatada[0]}")
+    print(f"O mês a partir da data recebida é: {data_formatada[1]}")
+    print(f"O ano a partir da data recebida é: {data_formatada[2]}")
+
+def exercicio_15() -> None:
+    print(f"Exercicio 15 - Escreva um programa que concatene duas strings fornecidas pelo usuário.")
+    string_1 = str(input("Forneca a primeira string: "))
+    string_2 = str(input("Forneca a segunda string: "))
+    string_concatenada = string_1 + ' ' + string_2
+
+    print(f"A primeira string fornecida foi: '{string_1}'")
+    print(f"A segunda string fornecida foi: '{string_2}'")
+    print(f"As duas strings concatenadas formam: '{string_concatenada}'")
+
+def exercicio_16() -> None:
+    print(f"Exercicio 16 - Escreva um programa que avalie duas expressões booleanas inseridas pelo usuário e retorne o resultado da operação AND entre elas.")
+    bool_1 = input("Informe um valor True ou False: ")
+    bool_2 = input("Informe um valor True ou False: ")
+    resultado = bool_1 and bool_2
+
+    print(f"O primeiro valor teve como resultado: {bool_1}")
+    print(f"O segundo valor teve como resultado: {bool_2}")
+    print(f"O resultado AND entre eles é de: {resultado}")
+
+def exercicio_17() -> None:
+    print(f"Exercicio 17 - Crie um programa que receba dois valores booleanos do usuário e retorne o resultado da operação OR.")
+    bool_1 = input("Informe um valor True ou False: ")
+    bool_2 = input("Informe um valor True ou False: ")
+    resultado = bool_1 or bool_2
+
+    print(f"O primeiro valor teve como resultado: {bool_1}")
+    print(f"O segundo valor teve como resultado: {bool_2}")
+    print(f"O resultado AND entre eles é de: {resultado}")
+
+def exercicio_18() -> None:
+    print(f"Exercicio 18 - Desenvolva um programa que peça ao usuário para inserir um valor booleano e, em seguida, inverta esse valor.")
+    bool_1 = input("Informe um valor True ou False: ")
+    resultado = not bool_1
+
+    print(f"O valor informado foi: {bool_1}")
+    print(f"O valor invertido é de: {resultado}")
+
+
+def exercicio_19() -> None:
+    print(f"Exercicio 19 - Faça um programa que compare se dois números fornecidos pelo usuário são iguais.")
+    num_1 = int(input("Informe o primeiro número: "))
+    num_2 = int(input("Informe o segundo número: "))
+    resultado = num_1 == num_2
+
+    print(f"O primeiro número informado foi: {num_1}")
+    print(f"O segundo número informado foi: {num_2}")
+    
+    if resultado == True:
+        print(f"Os números {num_1} e {num_2} são iguais.")
+    else:
+        print(f"Os números {num_1} e {num_2} são diferentes.")
+
+def exercicio_20() -> None:
+    print(f"Exercicio 20 - Escreva um programa que verifique se dois números fornecidos pelo usuário são diferentes.")
+    num_1 = int(input("Informe o primeiro número: "))
+    num_2 = int(input("Informe o segundo número: "))
+    resultado = num_1 == num_2
+    
+    print(f"O primeiro número informado foi: {num_1}")
+    print(f"O segundo número informado foi: {num_2}")
+    
+    if resultado == True:
+        print(f"Os números {num_1} e {num_2} são iguais.")
+    else:
+        print(f"Os números {num_1} e {num_2} são diferentes.")
+
+def executa_exercicio() -> None:
+    escolha = escolhe_exercicio()
+
+    dispatch = {
+        1: exercicio_01,
+        2: exercicio_02,
+        3: exercicio_03,
+        4: exercicio_04,
+        5: exercicio_05,
+        6: exercicio_06,
+        7: exercicio_07,
+        8: exercicio_08,
+        9: exercicio_09,
+        10: exercicio_10,
+        11: exercicio_11,
+        12: exercicio_12,
+        13: exercicio_13,
+        14: exercicio_14,
+        15: exercicio_15,
+        16: exercicio_16,
+        17: exercicio_17,
+        18: exercicio_18,
+        19: exercicio_19,
+        20: exercicio_20,
+    }
+
+    func = dispatch.get(escolha)
+    if func:
+        func()
+    else:
+        print(f"Exercicio {escolha} ainda nao foi implementado")
+
+if __name__ == "__main__":
+    executa_exercicio()
