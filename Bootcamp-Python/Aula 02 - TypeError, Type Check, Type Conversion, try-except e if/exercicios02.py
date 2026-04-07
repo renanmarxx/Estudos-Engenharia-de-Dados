@@ -49,9 +49,9 @@ def escolhe_exercicio() -> int:
     except ValueError:
         raise ValueError("O valor informado deve ser um numero inteiro.")
 
-    if escolha not in range(1, 21):
+    if escolha not in range(1, 26):
         raise ValueError(
-            "Exercicio invalido, por favor selecione um numero entre 1 e 20."
+            "Exercicio invalido, por favor selecione um numero entre 1 e 25."
         )
 
     return escolha
@@ -324,6 +324,90 @@ def exercicio_20() -> None:
     else:
         print(f"Os números {num_1} e {num_2} são diferentes.")
 
+def exercicio_21() -> None:
+    print(
+        f"Exercicio 21 - Escreva um programa que faca a conversao de Temperatura de Celsius para Farenheit ou Kelvin."
+    )
+    TEMPERATURA_KELVIN = 274.15
+    TEMPERATURA_FARENHEIT = 33.8
+    TIPOS_TEMPERATURA = ["K", "F"]
+
+    try:
+        valor_temperatura = float(input("Informe o valor da temperatura em graus Celsius: "))
+        tipo_temperatura_destino = input("Informe o tipo da temperatura (F para Fahrenheit ou K para Kelvin): ").upper()
+        print(valor_temperatura, tipo_temperatura_destino)
+
+        try:
+            if isinstance(tipo_temperatura_destino, str) and tipo_temperatura_destino in TIPOS_TEMPERATURA:
+                if tipo_temperatura_destino == "K":
+                    resultado = valor_temperatura * TEMPERATURA_KELVIN
+                    print(f"A conversão de {valor_temperatura}C para Kelvin sera de: {resultado}")
+                if tipo_temperatura_destino == "F":
+                    resultado = valor_temperatura * TEMPERATURA_FARENHEIT
+                    print(f"A conversão de {valor_temperatura}C para Farenheit sera de: {resultado}")
+            else:
+                raise TypeError("Tipo de temperatura destino invalido. Por favor, informe 'F' para Fahrenheit ou 'K' para Kelvin.")
+        except TypeError:
+            print("Valor nao conforme!")
+
+    except ValueError:
+        print("Valor de temperatura invalido. Por favor, informe um numero.")
+    
+def exercicio_22() -> None:
+    print(
+        f"Exercicio 22 - Escreva um programa que faca a verificacao se uma palavra é um palindromo."
+    )
+    try:
+        palavra = input("Informe uma palavra: ")
+        
+        if isinstance(palavra, str):
+            palavra = palavra.replace(" ", "").lower()
+            palavra_invertida = palavra[::-1]
+
+            if palavra == palavra_invertida:
+                print(f"A palavra '{palavra}' é um palíndromo. Seu valor invertido é: '{palavra_invertida}'")
+            else:
+                print(f"A palavra '{palavra}' não é um palíndromo. Seu valor invertido é: '{palavra_invertida}'")
+        else:
+            print("Valor nao conforme! Por favor, informe uma palavra no formato de texto.")
+
+    except Exception as e:
+        print(f"Ocorreu um erro: {e}")
+
+
+def exercicio_23() -> None:
+    print(
+        f"Exercicio 23 - Escreva um programa que receba 2 numeros e faca calculos simples (adicao, subtracao, divisao e multiplicacao)."
+    )
+
+    try:
+        num_1 = float(input("Informe o primeiro número: "))
+        num_2 = float(input("Informe o segundo número: "))
+        operador = input("Informe o operador para o calculo ( + para adicao, - para subtracao, * para multiplicacao e / para divisao): ")
+
+        if isinstance(num_1, (int, float)) and isinstance(num_2, (int, float)) and isinstance(operador, str):
+            if operador == "+":
+                resultado = num_1 + num_2
+                print(f"O resultado da adição entre {num_1} e {num_2} é: {resultado}")
+            elif operador == "-":
+                resultado = num_1 - num_2
+                print(f"O resultado da subtração entre {num_1} e {num_2} é: {resultado}")
+            elif operador == "*":
+                resultado = num_1 * num_2
+                print(f"O resultado da multiplicação entre {num_1} e {num_2} é: {resultado}")
+            elif operador == "/":
+                try:
+                    resultado = num_1 / num_2
+                    print(f"O resultado da divisão entre {num_1} e {num_2} é: {resultado}")
+                except ZeroDivisionError:
+                    print("Erro: Divisão por zero não é permitida.")
+            else:
+                print("Operador inválido! Por favor, informe um operador válido (+, -, *, /).")
+        
+    except ValueError:
+        print(f"Valor de número invalido. Por favor, informe um numero.")
+
+
 
 def executa_exercicio() -> None:
     escolha = escolhe_exercicio()
@@ -349,6 +433,11 @@ def executa_exercicio() -> None:
         18: exercicio_18,
         19: exercicio_19,
         20: exercicio_20,
+        21: exercicio_21,
+        22: exercicio_22,
+        23: exercicio_23,
+        24: exercicio_24,
+        25: exercicio_25,
     }
 
     func = dispatch.get(escolha)
