@@ -407,6 +407,40 @@ def exercicio_23() -> None:
     except ValueError:
         print(f"Valor de número invalido. Por favor, informe um numero.")
 
+def exercicio_24() -> None:
+    print(
+        f"Exercicio 24 - Escreva um programa que faca a classificacao de numeros."
+    )
+
+    try:
+        num = int(input("Informe um número: "))
+        if num > 0:
+            print(f"O número {num} é positivo.")
+        elif num < 0:
+            print(f"O número {num} é negativo.")
+        else:
+            print(f"O número {num} é zero.")
+        if num % 2 == 0:
+            print(f"O número {num} é par.")
+        else:
+            print(f"O número {num} é ímpar.")
+    except ValueError:
+        print("Valor de número inválido. Por favor, informe um número.")
+
+def exercicio_25() -> None:
+    print(
+        f"Exercicio 25 - Escreva um programa que faca conversao de tipo com validacao."
+    )
+    entrada_lista = input("Informe uma lista de números separados por vírgula: ")
+    numeros_str = entrada_lista.split(",")
+    numeros = []
+    
+    try:
+        for num in numeros_str:
+            numeros.append(int(num.strip()))
+        print(f"Os números informados são: {numeros}")
+    except ValueError:
+        print("Valor de número inválido. Por favor, informe números válidos.")
 
 
 def executa_exercicio() -> None:
