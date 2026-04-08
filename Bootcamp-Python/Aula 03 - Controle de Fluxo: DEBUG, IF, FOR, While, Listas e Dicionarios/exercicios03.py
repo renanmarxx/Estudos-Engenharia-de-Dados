@@ -186,6 +186,65 @@ def exercicio_05() -> None:
         )
 
 
+def exercicio_06() -> None:
+    print("Exercicio 06 - Contagem de Palavras em Textos")
+
+    try:
+        texto = input("Informe um texto qualquer: ")
+        palavras = texto.split()
+        contagem_palavras = {}
+
+        for palavra in palavras:
+            if palavra in contagem_palavras:
+                contagem_palavras[palavra] += 1
+
+            else:
+                contagem_palavras[palavra] = 1
+
+        print(f"O texto informado: '{texto}'\n")
+        print(f"Possui a seguinte relaco de palavras unicas: {contagem_palavras}")
+
+    except:
+        raise ValueError("Nao foi informado um texto")
+
+
+def exercicio_07() -> None:
+    print("Exercicio 07 - Normalização de Dados")
+
+    try:
+        contador_numeros = int(
+            input("Informe a quantidade de numeros que deseja fornecer: ")
+        )
+
+        contador_aux = 1
+        lista_numeros = []
+        while contador_aux <= contador_numeros:
+            novo_numero = int(
+                input(
+                    "Forneca um numero ({} de {}): ".format(
+                        contador_aux, contador_numeros
+                    )
+                )
+            )
+            lista_numeros.append(novo_numero)
+            contador_aux += 1
+
+        min_numero = sorted(set(lista_numeros), reverse=False)[0]
+        max_numero = sorted(set(lista_numeros), reverse=True)[0]
+
+        lista_numeros_normalizados = []
+        for numero in lista_numeros:
+            lista_numeros_normalizados.append(
+                round((numero - min_numero) / (max_numero - min_numero), 5)
+            )
+
+        print(f"A lista de numeros inteiros: {lista_numeros}")
+        print(f"Foi normalizada para a seguinte lista: {lista_numeros_normalizados}")
+
+    except:
+        raise ValueError("Um ou mais valores nao foram informados como numero")
+
+
 def executa_exercicio() -> None:
     escolha = escolhe_exercicio()
 
@@ -195,6 +254,8 @@ def executa_exercicio() -> None:
         3: exercicio_03,
         4: exercicio_04,
         5: exercicio_05,
+        6: exercicio_06,
+        7: exercicio_07,
     }
 
     func = dispatch.get(escolha)
