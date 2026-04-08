@@ -163,7 +163,7 @@ def exercicio_05() -> None:
     print("Exercicio 05 - Detecção de Anomalias em Dados de Transações")
 
     try:
-        valor_transacao = int(input("Informe o valor da transacao: "))
+        valor_transacao = float(input("Informe o valor da transacao: "))
         horario_transacao = int(input("Informe o horario da transacao: "))
 
         if valor_transacao > 0 and (0 <= horario_transacao <= 24):
