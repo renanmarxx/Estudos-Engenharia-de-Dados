@@ -1,3 +1,4 @@
 .venv
 .vscode
-Bootcamp-Python/bin
+bin/
+include/
