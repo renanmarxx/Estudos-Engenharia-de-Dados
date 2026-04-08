@@ -159,6 +159,33 @@ def exercicio_04() -> None:
         )
 
 
+def exercicio_05() -> None:
+    print("Exercicio 05 - Detecção de Anomalias em Dados de Transações")
+
+    try:
+        valor_transacao = int(input("Informe o valor da transacao: "))
+        horario_transacao = int(input("Informe o horario da transacao: "))
+
+        if valor_transacao > 0 and (0 <= horario_transacao <= 24):
+            dicionario_transacao = {
+                "valor": valor_transacao,
+                "hora": horario_transacao,
+            }
+
+            if (
+                dicionario_transacao["valor"] > 10000
+                or dicionario_transacao["hora"] < 9
+                or dicionario_transacao["hora"] > 18
+            ):
+                print("Transacao Suspeita")
+            else:
+                print("Transacao Idonea")
+    except:
+        raise ValueError(
+            "Voce deve inserir um valor de transacao maior do que zero e/ou um horario de transacao entre 0 e 24h"
+        )
+
+
 def executa_exercicio() -> None:
     escolha = escolhe_exercicio()
 
@@ -167,6 +194,7 @@ def executa_exercicio() -> None:
         2: exercicio_02,
         3: exercicio_03,
         4: exercicio_04,
+        5: exercicio_05,
     }
 
     func = dispatch.get(escolha)
