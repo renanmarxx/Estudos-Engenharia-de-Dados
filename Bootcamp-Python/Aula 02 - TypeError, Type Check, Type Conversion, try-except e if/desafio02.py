@@ -13,7 +13,7 @@ try:
         raise ValueError("O nome não deve conter números.")
         exit()
     elif nome.isspace():
-        raise ValueError("Voce digitou apenas um espaço")
+        raise ValueError("Voce digitou apenas espaço")
     else:
         print("Nome válido:", nome)
 
